@@ -1,4 +1,4 @@
-import {Register} from '../models/Register';
+import {Register} from '../models/register';
 import {Observable, of} from 'rxjs';
 
 

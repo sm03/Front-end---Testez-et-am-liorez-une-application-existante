@@ -1,0 +1,29 @@
+<div class="card m-3" *ngIf="!loading && student">
+  <h5 class="card-header">Détail étudiant</h5>
+    <div class="card-body">
+        <p>Utilisez le formulaire ci-dessous pour modifier les informations de l'étudiant.</p>
+                    
+        <div class="card">
+            <p><strong>ID :</strong> {{ student.id }}</p>
+            <p><strong>Prénom :</strong> {{ student.firstName }}</p>
+            <p><strong>Nom :</strong> {{ student.lastName }}</p>
+            <p><strong>Email :</strong> {{ student.email }}</p>
+            <p><strong>Téléphone :</strong> {{ student.phone }}</p>
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-warning" [routerLink]="['/students/edit', student.id]">
+            Modifier
+            </button>
+
+            <button class="btn btn-danger" [routerLink]="['/students/delete', student.id]">
+            Supprimer
+            </button>
+
+            <button class="btn btn-secondary" routerLink="/students">
+            Retour
+            </button>
+        </div>
+    </div>
+    <p *ngIf="loading">Chargement...</p>
+</div>

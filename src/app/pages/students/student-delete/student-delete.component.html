@@ -1,0 +1,21 @@
+<div class="card m-3" *ngIf="!loading && student">
+  <h5 class="card-header">Suppression étudiant</h5>
+    <div class="card-body">
+
+    <p>
+        Voulez-vous vraiment supprimer :
+        <strong>{{ student.firstName }} {{ student.lastName }}</strong> ?
+    </p>
+
+    <div class="buttons">
+        <button class="btn btn-danger" (click)="confirmDelete()" [disabled]="deleting">
+        {{ deleting ? 'Suppression...' : 'Oui supprimer' }}
+        </button>
+
+        <button class="btn btn-secondary" [routerLink]="['/students', student.id]">
+        Annuler
+        </button>
+    </div>
+    </div>
+</div>
+<p *ngIf="loading">Chargement...</p>

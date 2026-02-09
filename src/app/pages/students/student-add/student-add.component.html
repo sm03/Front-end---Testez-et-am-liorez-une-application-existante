@@ -1,0 +1,58 @@
+<div class="card m-3">
+    <h5 class="card-header">Ajouter un étudiant</h5>
+    <div class="card-body">
+        <p>Utilisez le formulaire ci-dessous pour ajouter un nouvel étudiant à notre système.</p>
+        <form [formGroup]="studentForm" (ngSubmit)="submit()">
+
+            <!-- prénom -->
+            <div class="form-group">
+            <label>Prénom</label>
+            <input type="text" formControlName="firstName" class="form-control">
+            <small class="error" *ngIf="studentForm.get('firstName')?.touched && studentForm.get('firstName')?.invalid">
+                Prénom requis
+            </small>
+            </div>
+
+            <!-- nom -->
+            <div class="form-group">
+            <label>Nom</label>
+            <input type="text" formControlName="lastName" class="form-control">
+            <small class="error" *ngIf="studentForm.get('lastName')?.touched && studentForm.get('lastName')?.invalid">
+                Nom requis
+            </small>
+            </div>
+
+            <!-- email -->
+            <div class="form-group">
+            <label>Email</label>
+            <input type="email" formControlName="email" class="form-control">
+            <small class="error" *ngIf="studentForm.get('email')?.touched && studentForm.get('email')?.invalid">
+                Email valide requis
+            </small>
+            </div>
+
+            <!-- téléphone -->
+            <div class="form-group">
+            <label>Téléphone</label>
+            <input type="text" formControlName="phone" class="form-control">
+            </div>
+
+            <!-- erreur -->
+            <div *ngIf="errorMessage" class="error-box">
+            {{ errorMessage }}
+            </div>
+
+            <!-- boutons -->
+            <div class="buttons">
+            <button type="submit" class="btn btn-success" [disabled]="loading">
+                {{ loading ? 'Création...' : 'Créer' }}
+            </button>
+
+            <button type="button" class="btn btn-secondary" routerLink="/students">
+                Annuler
+            </button>
+            </div>
+
+        </form>
+    </div>
+</div>
