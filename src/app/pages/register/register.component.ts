@@ -6,6 +6,7 @@ import { UserService } from '../../core/service/user.service';
 import { Register } from '../../core/models/register';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
+import { AuthService } from '../../core/service/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -24,9 +25,13 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
   submitted: boolean = false;
 
-  constructor(private router: Router) {} // Injection du Router pour la navigation
+  constructor(
+    private router: Router, // Injection du Router pour la navigation
+    public authService: AuthService   // AuthService logout
+  ) {} 
 
   ngOnInit() {
+    this.authService.logout();
     this.registerForm = this.formBuilder.group(
       {
         firstName: ['', Validators.required],

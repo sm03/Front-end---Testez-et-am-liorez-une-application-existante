@@ -14,16 +14,24 @@
       <div class="row justify-content-center">
 
         <div class="col-md-3 mb-3">
-          <a routerLink="/register" class="btn btn-success btn-lg btn-block shadow">
+          <a (click)="logout()" routerLink="/register" class="btn btn-success btn-lg btn-block shadow">
             Register New User
           </a>
         </div>
 
-        <div class="col-md-3 mb-3">
-          <a routerLink="/login" class="btn btn-primary btn-lg btn-block shadow">
-            Login
-          </a>
-        </div>
+        @if (authService.isLoggedIn()) {
+          <div class="col-md-3 mb-3">
+            <a (click)="logout()" routerLink="/" class="btn btn-primary btn-lg btn-block shadow">
+              Logout
+            </a>
+          </div>
+        } @else {
+          <div class="col-md-3 mb-3">
+            <a routerLink="/login" class="btn btn-primary btn-lg btn-block shadow">
+              Login
+            </a>
+          </div>
+        }
 
       </div>
 

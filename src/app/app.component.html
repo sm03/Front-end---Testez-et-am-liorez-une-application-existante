@@ -14,13 +14,18 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/register" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Register</a>
+        <a class="nav-link" (click)="logout()" routerLink="/register" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Register</a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Login</a>
-      </li>
-
+      @if (authService.isLoggedIn()) {
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Logout</a>
+        </li>
+      } @else {
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Login</a>
+        </li>
+      }
     </ul>
 
   </div>
