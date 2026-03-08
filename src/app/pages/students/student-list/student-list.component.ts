@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentResponseDTO } from '../../../core/models/student.model';
 import { StudentService } from '../../../core/service/student.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-student-list.component',
-  imports: [],
+  imports: [
+    RouterLink,
+  ],
   templateUrl: './student-list.component.html',
   styleUrl: './student-list.component.css'
 })

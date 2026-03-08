@@ -1,5 +1,10 @@
 <div class="card m-3">
     <h5 class="card-header">Liste des étudiants</h5>
+
+    <a class="btn btn-primary" routerLink="/students/add">
+        + Ajouter un étudiant
+    </a>
+
     <div class="card-body">
         <p>Voici la liste de tous les étudiants inscrits dans notre système.</p>
 
@@ -17,7 +22,7 @@
                 </thead>
                 <tbody>
                 @for (student of students; track student.id) {
-                <tr>
+                <tr [routerLink]="['/students', student.id]" style="cursor:pointer">
                     <td>{{ student.id }}</td>
                     <td>{{ student.firstName }}</td>
                     <td>{{ student.lastName }}</td>

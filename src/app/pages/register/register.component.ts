@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(
       () => {
-        alert('SUCCESS!! :-)');
+        //alert('SUCCESS!! :-)');
         this.router.navigate(['/login']); // Navigation vers la page de login après l'inscription réussie
       },
     );
