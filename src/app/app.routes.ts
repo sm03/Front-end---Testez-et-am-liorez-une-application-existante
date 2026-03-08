@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import {RegisterComponent} from './pages/register/register.component';
-import {AppComponent} from './app.component';
-import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
 import { StudentListComponent } from './pages/students/student-list/student-list.component';
 import { authGuard } from './core/guards/auth.gards';
 import { StudentAddComponent } from './pages/students/student-add/student-add.component';
@@ -12,17 +12,13 @@ import { StudentDeleteComponent } from './pages/students/student-delete/student-
 export const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
+    component: HomeComponent,
   },
   {
     path: 'register',
     component: RegisterComponent
   },
-/*  {
-    path: 'login',
-    component: LoginComponent
-  }
-*/{ 
+  { 
     path: 'login', 
     loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent) 
   },
